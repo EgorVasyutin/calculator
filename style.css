@@ -1,0 +1,761 @@
+.calc {
+    border-radius: 30px;
+    width: 700px;
+    height: 503px;
+    background-color: #000000;
+    color: white;
+    font-size: 25px;
+    position: relative;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.calc__screen {
+    padding-top: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 100px;
+    height: 114px;
+}
+.screen__button {
+
+
+}
+
+
+.button__signs--skob1 {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--skob1:hover{
+    opacity: 0.7;
+}
+
+.button__signs--skob2 {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--skob2:hover{
+    opacity: 0.7;
+}
+
+.button__signs--mc {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--mc:hover{
+    opacity: 0.7;
+}
+
+.button__signs--mp {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--mp:hover{
+    opacity: 0.7;
+}
+
+.button__signs--mm {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--mm:hover{
+    opacity: 0.7;
+}
+
+.button__signs--mr {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--mr:hover{
+    opacity: 0.7;
+}
+
+.button__signs--ac {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--ac:hover{
+    opacity: 0.7;
+}
+
+.button__signs--p-m {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--p-m:hover{
+    opacity: 0.7;
+}
+
+.button__signs--proc {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--proc:hover{
+    opacity: 0.7;
+}
+
+.button__signs--yellow--del {
+    width: 100px;
+    height: 70px;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--yellow--del:hover{
+    opacity: 0.7;
+}
+
+
+
+
+.str__1{
+    display: flex;
+}
+
+.button__signs--nd{
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--nd:hover {
+    opacity: 0.7;
+}
+
+.button__signs--x2 {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--x2:hover {
+    opacity: 0.7;
+}
+
+.button__signs--x3 {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--x3:hover {
+    opacity: 0.7;
+}
+
+.button__signs--xy {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--xy:hover {
+    opacity: 0.7;
+}
+
+.button__signs--ex {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--ex:hover {
+    opacity: 0.7;
+}
+
+.button__signs--10x {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--10x:hover {
+    opacity: 0.7;
+}
+
+.button__num--7 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+.button__num--7:hover {
+    opacity: 0.7;
+}
+
+.button__num--8 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+
+.button__num--9 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+.button__signs--yellow-x {
+    width: 100px;
+    height: 70px;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--yellow-x:hover{
+    opacity: 0.7;
+}
+
+.button__signs--1x {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--1x:hover{
+    opacity: 0.7;
+}
+
+.button__signs--2sqx {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--2sqx:hover{
+    opacity: 0.7;
+}
+
+.button__signs--3sqx {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--3sqx:hover{
+    opacity: 0.7;
+}
+
+.button__signs--ysqx {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--ysqx:hover{
+    opacity: 0.7;
+}
+
+.button__signs--in {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--in:hover{
+    opacity: 0.7;
+}
+
+.button__signs--log {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--log:hover{
+    opacity: 0.7;
+}
+
+.button__num--4 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+
+.button__num--5 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+.button__num--6 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+.button__signs--yellow-min {
+    width: 100px;
+    height: 70px;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--yellow-min:hover{
+    opacity: 0.7;
+}
+
+
+.button-nd__sings--rad {
+    border-radius: 0 0 0 30px;
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button-nd__sings--rad:hover{
+    opacity: 0.7;
+}
+
+.button__signs--sinh {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--sinh:hover{
+    opacity: 0.7;
+}
+
+.button__signs--cosh {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--cosh:hover{
+    opacity: 0.7;
+}
+
+.button__signs--tanh {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--tanh:hover{
+    opacity: 0.7;
+}
+
+.button__signs--p {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--p:hover{
+    opacity: 0.7;
+}
+
+.button__signs--rand {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--rand:hover{
+    opacity: 0.7;
+}
+
+.button__nul--o {
+    width: 200px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+
+.button__signs--yellow--zap {
+    width: 100px;
+    height: 70px;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--yellow--zap:hover{
+    opacity: 0.7;
+}
+
+.button-equals__yellow {
+    width: 100px;
+    height: 70px;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 30px 0;
+    border: 1px solid black;
+}
+.button-equals__yellow:hover {
+    opacity: 0.7;
+}
+
+.button__nul--o:hover{
+    opacity: 0.7;
+}
+
+
+.button__signs--X {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+.button__signs--X:hover{
+    opacity: 0.7;
+}
+
+.button__signs--sin {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--sin:hover{
+    opacity: 0.7;
+}
+
+.button__signs--cos {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--cos:hover{
+    opacity: 0.7;
+}
+
+.button__signs--tan {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--tan:hover{
+    opacity: 0.7;
+}
+
+.button__signs--e {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--e:hover{
+    opacity: 0.7;
+}
+
+.button__signs--EE {
+    width: 100px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--EE:hover{
+    opacity: 0.7;
+}
+
+.button__num--1 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.button__num--2 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.button__num--3 {
+    width: 100px;
+    height: 70px;
+    background-color: Gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.button__signs--yellow--pluse {
+    width: 100px;
+    height: 70px;
+    background-color: #FF8C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--yellow--pluse:hover{
+    opacity: 0.7;
+}
+
+
+
+
+
+.button__num--1:hover {
+    opacity: 0.7;
+}
+.button__num--2:hover {
+    opacity: 0.7;
+}
+.button__num--3:hover {
+    opacity: 0.7;
+}
+.button__num--4:hover {
+    opacity: 0.7;
+}
+
+
+.button__num--5:hover {
+    opacity: 0.7;
+}
+.button__num--6:hover {
+    opacity: 0.7;
+}
+.button__num--7:hover {
+    opacity: 0.7;
+}
+.button__num--8:hover {
+    opacity: 0.7;
+}
+.button__num--9:hover {
+    opacity: 0.7;
+}
+
+.button__signs--nd sup {
+    padding-bottom: 20px;
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+.button__signs--x2 sup{
+    padding-bottom: 20px;
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+.button__signs--x3 sup{
+    padding-bottom: 20px;
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+.button__signs--xy sup{
+    padding-bottom: 20px;
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+.button__signs--ex sup{
+    padding-bottom: 20px;
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+.button__signs--10x sup{
+    padding-bottom: 20px;
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+.button__signs--1x sup {
+    padding-bottom: 13px;
+    font-size: 18px;
+}
+
+.button__signs--1x sub {
+    padding-top: 13px;
+    font-size: 18px;
+}
+
+
+.button__signs--2sqx sup {
+    padding-bottom: 23px;
+    font-size: 16px;
+}
+
+.button__signs--3sqx sup{
+    padding-bottom: 23px;
+    font-size: 16px;
+}
+
+.button__signs--ysqx sup{
+    padding-bottom: 23px;
+    font-size: 16px;
+}
+
+.button__signs--log sub {
+    padding-top: 18px;
+    font-size: 16px;
+}
