@@ -1,33 +1,100 @@
+:root {
+    --color-gray: gray;
+    --color-gray-darken: dimgray;
+    --color-orange: #FF8C00;
+    --color-text: white;
+    --color-border: black;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .calc {
-    border-radius: 30px;
     width: 410px;
-    height: 574px;
     background-color: #000000;
     color: white;
     font-size: 25px;
-    position: relative;
-    margin-left: 100px;
-    margin-top: 100px;
-    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
 }
-.str__3 {
-    display: flex;
-    max-width: 400px;
-}
+
 .calc__screen {
-    padding-top: 30px;
-    padding-right: 30px;
     display: flex;
     justify-content: flex-end;
-    font-size: 100px;
-    height: 114px;
+    padding: 16px;
+    font-size: 64px;
+    line-height: 64px;
 }
+
+.calc__buttons {}
+
+.calc__buttons-grid {
+    display: grid;
+    grid-gap: 2px;
+}
+
+.calc__buttons-grid--engineer {
+    display: none;
+}
+
+.calc__buttons-grid--ordinary {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.calc__button {
+    /* сброс дефолтных стилей */
+    outline: none;
+    border: none;
+
+    padding: 20px 24px;
+    background-color: var(--color-gray-darken);
+    color: var(--color-text);
+    text-align: center;
+    font: 16px "Avenir Next";
+}
+
+.calc__button:hover {
+    opacity: 0.8;
+}
+
+.calc__buttons-grid--ordinary .calc__button--history {
+    grid-column: 1 / span 2;
+}
+
+.calc__buttons-grid--ordinary .calc__button--mode {
+    grid-column: 3 / span 2;
+}
+
+.calc__buttons-grid--ordinary .calc__button--zero {
+    grid-column: 1 / span 2;
+}
+
+
+.calc__button--main-operation {
+    background-color: var(--color-orange)
+}
+
+.calc__button--number {
+    background-color: var(--color-gray)
+}
+
+
+
+.calc__button--main-operation {
+
+}
+
 .str__2 {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     height: 70px;
 }
+
 .button__signs--history{
     width: 203px;
     height: 70px;
@@ -35,7 +102,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--history:hover {
     opacity: 0.7;
@@ -47,20 +113,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--switch:hover {
     opacity: 0.7;
-}
-.screen__button {
-    position: absolute;
-    right: 0px;
-}
-.screen__button-2 {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    display: none;
 }
 
 .button__signs--skob1 {
@@ -70,7 +125,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--skob1:hover{
     opacity: 0.7;
@@ -83,7 +137,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--skob2:hover{
     opacity: 0.7;
@@ -96,7 +149,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--mc:hover{
     opacity: 0.7;
@@ -109,7 +161,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--mp:hover{
     opacity: 0.7;
@@ -122,7 +173,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--mm:hover{
     opacity: 0.7;
@@ -135,7 +185,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--mr:hover{
     opacity: 0.7;
@@ -148,7 +197,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--ac:hover{
     opacity: 0.7;
@@ -161,7 +209,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--p-m:hover{
     opacity: 0.7;
@@ -174,7 +221,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--proc:hover{
     opacity: 0.7;
@@ -187,7 +233,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--yellow--del:hover{
     opacity: 0.7;
@@ -207,7 +252,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--nd:hover {
     opacity: 0.7;
@@ -220,7 +264,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--x2:hover {
     opacity: 0.7;
@@ -233,7 +276,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--x3:hover {
     opacity: 0.7;
@@ -246,7 +288,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--xy:hover {
     opacity: 0.7;
@@ -259,7 +300,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--ex:hover {
     opacity: 0.7;
@@ -272,7 +312,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--10x:hover {
     opacity: 0.7;
@@ -285,7 +324,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
 }
 .button__num--7:hover {
@@ -299,7 +337,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
 }
 
@@ -311,7 +348,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
 }
 
@@ -322,7 +358,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--yellow-x:hover{
     opacity: 0.7;
@@ -335,7 +370,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--1x:hover{
     opacity: 0.7;
@@ -348,7 +382,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--2sqx:hover{
     opacity: 0.7;
@@ -361,7 +394,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--3sqx:hover{
     opacity: 0.7;
@@ -374,7 +406,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--ysqx:hover{
     opacity: 0.7;
@@ -387,7 +418,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--in:hover{
     opacity: 0.7;
@@ -400,7 +430,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--log:hover{
     opacity: 0.7;
@@ -413,7 +442,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
 }
 
@@ -425,7 +453,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
 }
 
@@ -436,7 +463,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
 }
 
@@ -447,7 +473,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--yellow-min:hover{
     opacity: 0.7;
@@ -455,14 +480,12 @@
 
 
 .button-nd__sings--rad {
-    border-radius: 0 0 0 30px;
     width: 100px;
     height: 70px;
     background-color: DimGrey;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button-nd__sings--rad:hover{
     opacity: 0.7;
@@ -475,7 +498,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--sinh:hover{
     opacity: 0.7;
@@ -488,7 +510,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--cosh:hover{
     opacity: 0.7;
@@ -501,7 +522,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--tanh:hover{
     opacity: 0.7;
@@ -514,7 +534,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--p:hover{
     opacity: 0.7;
@@ -527,7 +546,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--rand:hover{
     opacity: 0.7;
@@ -540,8 +558,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
-    border-radius: 0 0 0 26px;
 }
 
 
@@ -552,7 +568,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--yellow--zap:hover{
     opacity: 0.7;
@@ -565,8 +580,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0 0 30px 0;
-    border: 1px solid black;
 }
 .button-equals__yellow:hover {
     opacity: 0.7;
@@ -584,7 +597,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 
 }
 .button__signs--X:hover{
@@ -598,7 +610,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--sin:hover{
     opacity: 0.7;
@@ -611,7 +622,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--cos:hover{
     opacity: 0.7;
@@ -624,7 +634,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--tan:hover{
     opacity: 0.7;
@@ -637,7 +646,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--e:hover{
     opacity: 0.7;
@@ -650,7 +658,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--EE:hover{
     opacity: 0.7;
@@ -663,7 +670,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
 .button__num--2 {
@@ -673,7 +679,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
 .button__num--3 {
@@ -683,7 +688,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
 .button__signs--yellow--pluse {
@@ -693,7 +697,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 .button__signs--yellow--pluse:hover{
     opacity: 0.7;

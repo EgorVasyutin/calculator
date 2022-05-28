@@ -3,100 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calc">
-        <div class="calc__screen">
-           0
+      <div class="calc__screen">
+         0
+      </div>
+
+      <div class="calc__buttons">
+        <div class="calc__buttons-grid calc__buttons-grid--engineer">
+            <div class="calc__button">+/-</div>
+            <div class="calc__button">2<sup>nd</sup></div>
+            <div class="calc__button"><sup>1</sup>/<sub>x</sub></div>
+            <div class="calc__button">x!</div>
+            <div class="calc__button">Rad</div>
+
+            <div class="calc__button">mc</div>
+            <div class="calc__button">m+</div>
+            <div class="calc__button">m-</div>
+            <div class="calc__button">mr</div>
+            <div class="calc__button">%</div>
+
+            <div class="calc__button">x<sup>2</sup></div>
+            <div class="calc__button">x<sup>3</sup></div>
+            <div class="calc__button">x<sup>y</sup></div>
+            <div class="calc__button">e<sup>x</sup></div>
+            <div class="calc__button">10<sup>x</sup></div>
+
+            <div class="calc__button"><sup>2</sup>√x</div>
+            <div class="calc__button"><sup>3</sup>√x</div>
+            <div class="calc__button"><sup>y</sup>√x</div>
+            <div class="calc__button">in</div>
+            <div class="calc__button">log<sub>10</sub></div>
+
+            <div class="calc__button">sin</div>
+            <div class="calc__button">cos</div>
+            <div class="calc__button">tan</div>
+            <div class="calc__button">e</div>
+            <div class="calc__button">EE</div>
+
+            <div class="calc__button">sinh</div>
+            <div class="calc__button">cosh</div>
+            <div class="calc__button">tanh</div>
+            <div class="calc__button">p</div>
+            <div class="calc__button">Rand</div>
         </div>
-        <div class="screen__button">
-            <div class="str__2">
-                <div class="button__signs--history">History</div>
-                <div class="button__signs--switch">Engineering</div>
 
+        <div class="calc__buttons-grid calc__buttons-grid--ordinary">
+            <button class="calc__button calc__button--history">History</button>
+            <button class="calc__button calc__button--mode">Engineering</button>
 
-            </div>
+            <button class="calc__button">AC</button>
+            <button class="calc__button">(</button>
+            <button class="calc__button">)</button>
+            <button class="calc__button calc__button--main-operation">/</button>
 
+            <button class="calc__button calc__button--number">7</button>
+            <button class="calc__button calc__button--number">8</button>
+            <button class="calc__button calc__button--number">9</button>
+            <button class="calc__button calc__button--main-operation">X</button>
 
-            <div class="str__1">
-                <div class="button__signs--ac">AC</div>
-                <div class="button__signs--skob1">(</div>
-                <div class="button__signs--skob2">)</div>
-                <div class="button__signs--yellow--del">/</div>
-            </div>
+            <button class="calc__button calc__button--number">4</button>
+            <button class="calc__button calc__button--number">5</button>
+            <button class="calc__button calc__button--number">6</button>
+            <button class="calc__button calc__button--main-operation">-</button>
 
-            <div class="str__1">
-                <div class="button__num--7">7</div>
-                <div class="button__num--8">8</div>
-                <div class="button__num--9">9</div>
-                <div class="button__signs--yellow-x">X</div>
-            </div>
+            <button class="calc__button calc__button--number">1</button>
+            <button class="calc__button calc__button--number">2</button>
+            <button class="calc__button calc__button--number">3</button>
+            <button class="calc__button calc__button--main-operation">+</button>
 
-            <div class="str__1">
-
-                <div class="button__num--4">4</div>
-                <div class="button__num--5">5</div>
-                <div class="button__num--6">6</div>
-                <div class="button__signs--yellow-min">-</div>
-            </div>
-
-            <div class="str__1">
-                <div class="button__num--1">1</div>
-                <div class="button__num--2">2</div>
-                <div class="button__num--3">3</div>
-                <div class="button__signs--yellow--pluse">+</div>
-            </div>
-
-            <div class="str__1">
-                <div class="button__nul--o">0</div>
-                <div class="button__signs--yellow--zap">.</div>
-                <div class="button-equals__yellow">=</div>
-            </div>
-
+            <button class="calc__button calc__button--number calc__button--zero">0</button>
+            <button class="calc__button calc__button--main-operation">.</button>
+            <button class="calc__button calc__button--main-operation">=</button>
         </div>
-        <div class="screen__button-2">
-            <div class="str__3">
-                <div class="button__signs--p-m">+/-</div>
-                <div class="button__signs--mc">mc</div>
-                <div class="button__signs--mp">m+</div>
-                <div class="button__signs--mm">m-</div>
-                <div class="button__signs--mr">mr</div>
-                <div class="button__signs--proc">%</div>
-            </div>
-            <div class="str__3">
-                <div class="button__signs--nd">2<sup>nd</sup></div>
-                <div class="button__signs--x2">x<sup>2</sup></div>
-                <div class="button__signs--x3">x<sup>3</sup></div>
-                <div class="button__signs--xy">x<sup>y</sup></div>
-                <div class="button__signs--ex">e<sup>x</sup></div>
-                <div class="button__signs--10x">10<sup>x</sup></div>
-            </div>
-            <div class="str__3">
-                <div class="button__signs--1x"><sup>1</sup>/<sub>x</sub></div>
-                <div class="button__signs--2sqx"><sup>2</sup>√x</div>
-                <div class="button__signs--3sqx"><sup>3</sup>√x</div>
-                <div class="button__signs--ysqx"><sup>y</sup>√x</div>
-                <div class="button__signs--in">in</div>
-                <div class="button__signs--log">log<sub>10</sub></div>
-            </div>
-            <div class="str__3">
-                <div class="button__signs--X">x!</div>
-                <div class="button__signs--sin">sin</div>
-                <div class="button__signs--cos">cos</div>
-                <div class="button__signs--tan">tan</div>
-                <div class="button__signs--e">e</div>
-                <div class="button__signs--EE">EE</div>
-            </div>
-            <div class="str__3">
-                <div class="button-nd__sings--rad">Rad</div>
-                <div class="button__signs--sinh">sinh</div>
-                <div class="button__signs--cosh">cosh</div>
-                <div class="button__signs--tanh">tanh</div>
-                <div class="button__signs--p">p</div>
-                <div class="button__signs--rand">Rand</div>
-            </div>
-        </div>
+      </div>
     </div>
     <script src="script.js"></script>
 </body>

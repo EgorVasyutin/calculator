@@ -1,3 +1,15 @@
+/*
+* Выровнять верстку - перенести часть кнопок на первый ряд
+* Пофиксить переключение в инженерный режим
+* Добавить обработку скобочек
+* Сверстать блок с историей
+* Добавить переключение в просмотр истории и обратно в калькулятор
+* Убрать цифры в css классах и названиях
+* Избавиться от повторений
+*
+* */
+
+
 let a = '';
 let b = '';
 let sing = '';
@@ -219,17 +231,13 @@ function calcMore() {
     const nol = document.querySelector('.button__nul--o')
 
     if (more.style.display === 'none') {
-        more.style.display = 'inline'
-        btm.innerHTML =  'Ordinary'
-        disp.style.width = '809px'
-        nol.style.borderRadius = '0'
-
-
-    }else {
+        more.style.display = 'block'
+        btm.innerHTML =  'Обычный'
+        disp.style.width = '800px'
+    } else {
         more.style.display = 'none'
-        btm.innerHTML = 'Engineering'
-        disp.style.width = '410px'
-        nol.style.borderRadius = '0 0 0 26px'
+        btm.innerHTML = 'Инженерный'
+        disp.style.width = '400px'
     }
 }
 document.querySelector(".button__signs--switch").onclick = calcMore;
