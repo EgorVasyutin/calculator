@@ -1,15 +1,19 @@
 .calc {
     border-radius: 30px;
-    width: 700px;
-    height: 503px;
+    width: 410px;
+    height: 574px;
     background-color: #000000;
     color: white;
     font-size: 25px;
     position: relative;
     margin-left: 100px;
     margin-top: 100px;
+    position: relative;
 }
-
+.str__3 {
+    display: flex;
+    max-width: 400px;
+}
 .calc__screen {
     padding-top: 30px;
     padding-right: 30px;
@@ -18,11 +22,46 @@
     font-size: 100px;
     height: 114px;
 }
-.screen__button {
-
-
+.str__2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
 }
-
+.button__signs--history{
+    width: 203px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--history:hover {
+    opacity: 0.7;
+}
+.button__signs--switch{
+    width: 203px;
+    height: 70px;
+    background-color: DimGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.button__signs--switch:hover {
+    opacity: 0.7;
+}
+.screen__button {
+    position: absolute;
+    right: 0px;
+}
+.screen__button-2 {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    display: none;
+}
 
 .button__signs--skob1 {
     width: 100px;
@@ -495,13 +534,14 @@
 }
 
 .button__nul--o {
-    width: 200px;
+    width: 203px;
     height: 70px;
     background-color: Gray;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+    border-radius: 0 0 0 26px;
 }
 
 

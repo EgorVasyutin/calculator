@@ -2,6 +2,8 @@ let a = '';
 let b = '';
 let sing = '';
 let finish = false;
+let result = 0
+let history = []
 
 const digit = ['0','1','2','3','4','5','6','7','8','9','.'];
 const action = ['+','-','X','/','(',')','2nd','x2','x3','xy','ex','10x','1/x','2x','3x','yx','in','log','x!','sin','cos','tan','e','EE','rad','sinh','cosh','tanh','p','rand']
@@ -37,6 +39,7 @@ document.querySelector('.screen__button').onclick = (event) => {
         }
         return;
     }
+
     if (action.includes(key)) {
         sing = key
         out.textContent = sing
@@ -45,13 +48,13 @@ document.querySelector('.screen__button').onclick = (event) => {
     }
     if(key === '=') {
         switch (sing){
-            case '+':  a = (+a) + (+b)
+            case '+':  result = (+a) + (+b)
                 break
-            case '-': a = a - b
+            case '-': result = a - b
                 break
-            case 'X': a = a * b
+            case 'X': result = a * b
                 break
-            case '/': a = a / b
+            case '/': result = a / b
                 if (b === '0'){
                     out.textContent = 'Ошибка'
                     a = ''
@@ -60,58 +63,180 @@ document.querySelector('.screen__button').onclick = (event) => {
                     return;
                 }
                 break
-            case '2nd': a = a * Math.pow(10, 0)
+            case '2nd': result = a * Math.pow(10, 0)
                 break
-            case 'x2': a = Math.pow(a, 2)
+            case 'x2': result = Math.pow(a, 2)
                 break
-            case 'x3': a = Math.pow(a, 3)
+            case 'x3': result = Math.pow(a, 3)
                 break
-            case 'xy': a = Math.pow(a, b)
+            case 'xy': result = Math.pow(a, b)
                 break
-            case 'ex': a = Math.pow(2.7182818284590452, b)
+            case 'ex': result = Math.pow(2.7182818284590452, b)
                 break
-            case '10x': a = Math.pow(10, b)
+            case '10x': result = Math.pow(10, b)
                 break
-            case '1/x': a = 1 / b
+            case '1/x': result = 1 / b
                 break
-            case '2x': a = Math.sqrt(a) * 2
+            case '2x': result = Math.sqrt(a) * 2
                 break
-            case '3x': a = Math.sqrt(a) * 3
+            case '3x': result = Math.sqrt(a) * 3
                 break
-            case 'yx': a = Math.sqrt(a) * b
+            case 'yx': result = Math.sqrt(a) * b
                 break
-            case 'log': a = a * 0.1505149978319906
+            case 'log': result = Math.log10(a)
                 break
-            case 'in': a = a * 0.34657359027997265
+            case 'in':
                 break
             case 'x!':
                 break
-            case 'sin': a = Math.sin(a)
+            case 'sin': result = Math.sin(a)
                 break
-            case 'cos': a = Math.cos(a)
+            case 'cos': result = Math.cos(a)
                 break
-            case 'tan': a = Math.tan(a)
+            case 'tan': result = Math.tan(a)
                 break
-            case 'e': a = a * 2.7182818284590452
+            case 'e': result = Math.E * a
                 break
             case 'EE':
                 break
             case 'rad':
                 break
-            case 'sinh': a = Math.sinh(a)
+            case 'sinh': result = Math.sinh(a)
                 break
-            case 'cosh': a = Math.cosh(a)
+            case 'cosh': result = Math.cosh(a)
                 break
-            case 'tanh': a = Math.tanh(a)
+            case 'tanh': result = Math.tanh(a)
                 break
-            case 'p': a = a * 3.14
+            case 'p': result = a * 3.14
                 break
             case 'rand':
                 break
         }
         finish = true
-        out.textContent = a
+        out.textContent = result
+        geyHistory(a, b, sing)
     }
 }
+document.querySelector('.screen__button-2').onclick = (event2) => {
+    const key = event2.target.textContent;
+    if (digit.includes(key)) {
+        if (b === '' && sing === ''){
+            a += key;
+            out.textContent = a
+        }
+        else if(a !== '' && b !== '' && finish){
+            b = key
+            finish = false
+            out.textContent = b
+        }else{
+            b += key
+            out.textContent = b
+        }
+        return;
+    }
 
-//'x!','sin','cos','tan','e','EE','rad','sinh','cosh','tanh','p','rand']
+    if (action.includes(key)) {
+        sing = key
+        out.textContent = sing
+        console.log(sing)
+        return;
+    }
+    if(key === '=') {
+        switch (sing){
+            case '+':  result = (+a) + (+b)
+                break
+            case '-': result = a - b
+                break
+            case 'X': result = a * b
+                break
+            case '/': result = a / b
+                if (b === '0'){
+                    out.textContent = 'Ошибка'
+                    a = ''
+                    b = ''
+                    sing = ''
+                    return;
+                }
+                break
+            case '2nd': result = a * Math.pow(10, 0)
+                break
+            case 'x2': result = Math.pow(a, 2)
+                break
+            case 'x3': result = Math.pow(a, 3)
+                break
+            case 'xy': result = Math.pow(a, b)
+                break
+            case 'ex': result = Math.pow(2.7182818284590452, b)
+                break
+            case '10x': result = Math.pow(10, b)
+                break
+            case '1/x': result = 1 / b
+                break
+            case '2x': result = Math.sqrt(a) * 2
+                break
+            case '3x': result = Math.sqrt(a) * 3
+                break
+            case 'yx': result = Math.sqrt(a) * b
+                break
+            case 'log': result = Math.log10(a)
+                break
+            case 'in':
+                break
+            case 'x!':
+                break
+            case 'sin': result = Math.sin(a)
+                break
+            case 'cos': result = Math.cos(a)
+                break
+            case 'tan': result = Math.tan(a)
+                break
+            case 'e': result = Math.E * a
+                break
+            case 'EE':
+                break
+            case 'rad':
+                break
+            case 'sinh': result = Math.sinh(a)
+                break
+            case 'cosh': result = Math.cosh(a)
+                break
+            case 'tanh': result = Math.tanh(a)
+                break
+            case 'p': result = a * 3.14
+                break
+            case 'rand':
+                break
+        }
+        finish = true
+        out.textContent = result
+        geyHistory(a, b, sing)
+    }
+}
+function calcMore() {
+    const more = document.querySelector('.screen__button-2')
+    const btm = document.querySelector('.button__signs--switch')
+    const disp = document.querySelector('.calc')
+    const nol = document.querySelector('.button__nul--o')
+
+    if (more.style.display === 'none') {
+        more.style.display = 'inline'
+        btm.innerHTML =  'Ordinary'
+        disp.style.width = '809px'
+        nol.style.borderRadius = '0'
+
+
+    }else {
+        more.style.display = 'none'
+        btm.innerHTML = 'Engineering'
+        disp.style.width = '410px'
+        nol.style.borderRadius = '0 0 0 26px'
+    }
+}
+document.querySelector(".button__signs--switch").onclick = calcMore;
+
+
+function geyHistory(a, b, sing) {
+    eval('a'+'sing'+'b')
+}
+
+document.querySelector(".button__signs--history").onclick = geyHistory;
