@@ -16,9 +16,10 @@ let sing = '';
 let finish = false;
 let result = 0
 let history = []
+let displayString = ''
 
 const digit = ['0','1','2','3','4','5','6','7','8','9','.'];
-const action = ['+','-','X','/','(',')','2nd','x2','x3','xy','ex','10x','1/x','2x','3x','yx','in','log','x!','sin','cos','tan','e','EE','rad','sinh','cosh','tanh','p','rand']
+const action = ['+','-','X','/','2nd','x2','x3','xy','ex','10x','1/x','2x','3x','yx','in','log','x!','sin','cos','tan','e','EE','rad','sinh','cosh','tanh','p','rand','(',')']
 
 const out = document.querySelector('.calc__screen')
 
@@ -33,19 +34,18 @@ function clearAll () {
 document.querySelector(".ac").onclick = clearAll;
 
 document.querySelector('.calc__buttons').onclick = (event) => {
-    if(event.target.classList.contains('button__signs--ac'))  return;
-    out.textContent = '';
+    if (event.target.classList.contains('button__signs--ac')) return;
+    out.textContent = displayString;
     const key = event.target.textContent;
     if (digit.includes(key)) {
-        if (b === '' && sing === ''){
+        if (b === '' && sing === '') {
             a += key;
             out.textContent = a
-        }
-        else if(a !== '' && b !== '' && finish){
+        } else if (a !== '' && b !== '' && finish) {
             b = key
             finish = false
             out.textContent = b
-        }else{
+        } else {
             b += key
             out.textContent = b
         }
@@ -58,16 +58,20 @@ document.querySelector('.calc__buttons').onclick = (event) => {
         console.log(sing)
         return;
     }
-    if(key === '=') {
-        switch (sing){
-            case '+':  result = (+a) + (+b)
+    if (key === '=') {
+        switch (sing) {
+            case '+':
+                result = (+a) + (+b)
                 break
-            case '-': result = a - b
+            case '-':
+                result = a - b
                 break
-            case 'X': result = a * b
+            case 'X':
+                result = a * b
                 break
-            case '/': result = a / b
-                if (b === '0'){
+            case '/':
+                result = a / b
+                if (b === '0') {
                     out.textContent = 'Ошибка'
                     a = ''
                     b = ''
@@ -75,94 +79,75 @@ document.querySelector('.calc__buttons').onclick = (event) => {
                     return;
                 }
                 break
-            case '2nd': result = a * Math.pow(10, 0)
+            case '2nd':
+                result = a * Math.pow(10, 0)
                 break
-            case 'x2': result = Math.pow(a, 2)
+            case 'x2':
+                result = Math.pow(a, 2)
                 break
-            case 'x3': result = Math.pow(a, 3)
+            case 'x3':
+                result = Math.pow(a, 3)
                 break
-            case 'xy': result = Math.pow(a, b)
+            case 'xy':
+                result = Math.pow(a, b)
                 break
-            case 'ex': result = Math.pow(2.7182818284590452, b)
+            case 'ex':
+                result = Math.pow(2.7182818284590452, b)
                 break
-            case '10x': result = Math.pow(10, b)
+            case '10x':
+                result = Math.pow(10, b)
                 break
-            case '1/x': result = 1 / b
+            case '1/x':
+                result = 1 / b
                 break
-            case '2x': result = Math.sqrt(a) * 2
+            case '2x':
+                result = Math.sqrt(a) * 2
                 break
-            case '3x': result = Math.sqrt(a) * 3
+            case '3x':
+                result = Math.sqrt(a) * 3
                 break
-            case 'yx': result = Math.sqrt(a) * b
+            case 'yx':
+                result = Math.sqrt(a) * b
                 break
-            case 'log': result = Math.log10(a)
+            case 'log':
+                result = Math.log10(a)
                 break
             case 'in':
                 break
             case 'x!':
                 break
-            case 'sin': result = Math.sin(a)
+            case 'sin':
+                result = Math.sin(a)
                 break
-            case 'cos': result = Math.cos(a)
+            case 'cos':
+                result = Math.cos(a)
                 break
-            case 'tan': result = Math.tan(a)
+            case 'tan':
+                result = Math.tan(a)
                 break
-            case 'e': result = Math.E * a
+            case 'e':
+                result = Math.E * a
                 break
             case 'EE':
                 break
             case 'rad':
                 break
-            case 'sinh': result = Math.sinh(a)
+            case 'sinh':
+                result = Math.sinh(a)
                 break
-            case 'cosh': result = Math.cosh(a)
+            case 'cosh':
+                result = Math.cosh(a)
                 break
-            case 'tanh': result = Math.tanh(a)
+            case 'tanh':
+                result = Math.tanh(a)
                 break
-            case 'p': result = a * 3.14
+            case 'p':
+                result = a * 3.14
                 break
             case 'rand':
                 break
         }
         finish = true
-        out.textContent = result
-    }
-}
+        out.textContent = displayString
 
-function calcMore() {
-    const more = document.querySelector('.calc__buttons-grid')
-    const btm_mode = document.querySelector('.calc__button--mode')
-    const disp = document.querySelector('.calc')
-    const btms = document.querySelector('.calc__buttons')
-
-    if (more.style.display === 'none') {
-        more.style.display = 'grid'
-        btm_mode.innerHTML =  'ordinary'
-        disp.style.width = '800px'
-        btms.style.display = 'grid'
-    } else {
-        more.style.display = 'none'
-        btm_mode.innerHTML = 'Engineering'
-        disp.style.width = '400px'
-        btms.style.display = 'block'
-    }
-}
-document.querySelector(".calc__button--mode").onclick = calcMore;
-
-function calcHistory() {
-    const btm = document.querySelector('.calc__buttons-grid--ordinary .calc__button--history')
-    const screen = document.querySelector('.calc__history')
-    const calcScreen = document.querySelector('.calc__screen')
-    if (screen.style.display === 'none') {
-        screen.style.display = 'flex'
-        btm.textContent = 'Calculator'
-        calcScreen.style.display = 'none'
-    }else {
-        screen.style.display = 'none'
-        btm.textContent = 'History'
-        calcScreen.style.display = 'flex'
-    }
-}
-
-document.querySelector('.calc__buttons-grid--ordinary .calc__button--history').onclick = calcHistory
 
