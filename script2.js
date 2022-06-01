@@ -2,7 +2,7 @@ let screen = document.querySelector('.calc__screen')
 function event(event) {
     if(!event.target.classList.contains('calc__button')) return;
 
-    const result = event.target.innerText
+    const   result = event.target.innerText
 
     switch (result){
         case 'AC': screen.innerText = ''
@@ -14,6 +14,72 @@ function event(event) {
         case 'ordinary': screen.innerText = ''
             break
         case 'History': screen.innerText = ''
+            break
+        case '2nd':
+            screen.innerText = screen.innerText * Math.pow(10, 0)
+            break
+        case 'x2':
+            screen.innerText = Math.pow(screen.innerText, 2)
+            break
+        case 'x3':
+            screen.innerText = Math.pow(screen.innerText, 3)
+            break
+        case 'xy':
+            break
+        case 'ex':
+            screen.innerText = Math.pow(2.7182818284590452, screen.innerText)
+            break
+        case '10x':
+            screen.innerText = Math.pow(10, screen.innerText)
+            break
+        case '1/x':
+            screen.innerText = 1 / screen.innerText
+            break
+        case '2x':
+            screen.innerText = Math.sqrt(screen.innerText) * 2
+            break
+        case '3x':
+            screen.innerText = Math.sqrt(screen.innerText) * 3
+            break
+        case 'yx':
+            screen.innerText = Math.sqrt(screen.innerText) * b
+            break
+        case 'log':
+            screen.innerText = Math.log10(screen.innerText)
+            break
+        case 'in':
+            break
+        case 'x!':
+            break
+        case 'sin':
+            screen.innerText = Math.sin(screen.innerText)
+            break
+        case 'cos':
+            screen.innerText = Math.cos(screen.innerText)
+            break
+        case 'tan':
+            screen.innerText = Math.tan(screen.innerText)
+            break
+        case 'e':
+            screen.innerText = Math.E * screen.innerText
+            break
+        case 'EE':
+            break
+        case 'rad':
+            break
+        case 'sinh':
+            screen.innerText = Math.sinh(screen.innerText)
+            break
+        case 'cosh':
+            screen.innerText = Math.cosh(screen.innerText)
+            break
+        case 'tanh':
+            screen.innerText = Math.tanh(screen.innerText)
+            break
+        case 'p':
+            screen.innerText = screen.innerText * 3.14
+            break
+        case 'rand':
             break
         default: screen.innerText += result
     }
