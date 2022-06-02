@@ -1,153 +1,100 @@
-/* TODO:
-* переделать на eval -
-* Выровнять верстку - перенести часть кнопок на первый ряд +
-* Пофиксить переключение в инженерный режим +
-* Добавить обработку скобочек -
-* Сверстать блок с историей +
-* Добавить переключение в просмотр истории и обратно в калькулятор +
-* Убрать цифры в css классах и названиях +
-* Избавиться от повторений +
-* */
+let screen = document.querySelector(".calc__screen");
 
+/*State*/
+let expression = "";
+const history = [];
 
-let a = '';
-let b = '';
-let sing = '';
-let finish = false;
-let result = 0
-let history = []
-let displayString = ''
-
-const digit = ['0','1','2','3','4','5','6','7','8','9','.'];
-const action = ['+','-','X','/','2nd','x2','x3','xy','ex','10x','1/x','2x','3x','yx','in','log','x!','sin','cos','tan','e','EE','rad','sinh','cosh','tanh','p','rand','(',')']
-
-const out = document.querySelector('.calc__screen')
-
-function clearAll () {
-    a = '';
-    b = '';
-    sing = '';
-    finish = false;
-    out.textContent = 0;
+function calculateResult(expression, action) {
+  switch (action) {
+    case "2nd":
+      return expression * Math.pow(10, 0);
+    case "x2":
+      return Math.pow(expression, 2);
+    case "x3":
+      return Math.pow(expression, 3);
+    case "xy":
+    case "ex":
+      return Math.pow(Math.E, expression);
+    case "10x":
+      return Math.pow(10, expression);
+    case "1/x":
+      return 1 / expression;
+    case "2x":
+      return Math.sqrt(expression) * 2;
+    case "3x":
+      return Math.sqrt(expression) * 3;
+    case "yx":
+      return Math.sqrt(expression) * b;
+    case "log":
+      return Math.log10(expression);
+    case "in":
+    case "x!":
+    case "sin":
+      return Math.sin(expression);
+    case "cos":
+      return Math.cos(expression);
+    case "tan":
+      return Math.tan(expression);
+    case "e":
+      return Math.E * expression;
+    case "EE":
+    case "rad":
+    case "sinh":
+      return Math.sinh(expression);
+    case "cosh":
+      return Math.cosh(expression);
+    case "tanh":
+      return Math.tanh(expression);
+    case "p":
+      return expression * Math.PI;
+    case "rand":
+    default:
+      return eval(expression.slice(0, expression.length - 1));
+  }
 }
 
-document.querySelector(".ac").onclick = clearAll;
+function onCalcButtonClick(event) {
+  if (!event.target.classList.contains("calc__button")) return;
+  switch (event.target.innerText) {
+    case "AC":
+      expression = screen.innerText = "";
+      return;
+    case "Engineering":
+      return;
+    case "ordinary":
+      return;
+  }
 
-document.querySelector('.calc__buttons').onclick = (event) => {
-    if (event.target.classList.contains('button__signs--ac')) return;
-    out.textContent = displayString;
-    const key = event.target.textContent;
-    if (digit.includes(key)) {
-        if (b === '' && sing === '') {
-            a += key;
-            out.textContent = a
-        } else if (a !== '' && b !== '' && finish) {
-            b = key
-            finish = false
-            out.textContent = b
-        } else {
-            b += key
-            out.textContent = b
-        }
-        return;
+  expression += event.target.innerText;
+  if (!/^[0-9]$/.test(event.target.innerText)) {
+    const action = event.target.innerText;
+
+    if (event.target.innerText === "=") {
+      expression += calculateResult(expression, action);
+      history.push(expression);
     }
+  }
 
-    if (action.includes(key)) {
-        sing = key
-        out.textContent = sing
-        console.log(sing)
-        return;
-    }
-    if (key === '=') {
-        switch (sing) {
-            case '+':
-                result = (+a) + (+b)
-                break
-            case '-':
-                result = a - b
-                break
-            case 'X':
-                result = a * b
-                break
-            case '/':
-                result = a / b
-                if (b === '0') {
-                    out.textContent = 'Ошибка'
-                    a = ''
-                    b = ''
-                    sing = ''
-                    return;
-                }
-                break
-            case '2nd':
-                result = a * Math.pow(10, 0)
-                break
-            case 'x2':
-                result = Math.pow(a, 2)
-                break
-            case 'x3':
-                result = Math.pow(a, 3)
-                break
-            case 'xy':
-                result = Math.pow(a, b)
-                break
-            case 'ex':
-                result = Math.pow(2.7182818284590452, b)
-                break
-            case '10x':
-                result = Math.pow(10, b)
-                break
-            case '1/x':
-                result = 1 / b
-                break
-            case '2x':
-                result = Math.sqrt(a) * 2
-                break
-            case '3x':
-                result = Math.sqrt(a) * 3
-                break
-            case 'yx':
-                result = Math.sqrt(a) * b
-                break
-            case 'log':
-                result = Math.log10(a)
-                break
-            case 'in':
-                break
-            case 'x!':
-                break
-            case 'sin':
-                result = Math.sin(a)
-                break
-            case 'cos':
-                result = Math.cos(a)
-                break
-            case 'tan':
-                result = Math.tan(a)
-                break
-            case 'e':
-                result = Math.E * a
-                break
-            case 'EE':
-                break
-            case 'rad':
-                break
-            case 'sinh':
-                result = Math.sinh(a)
-                break
-            case 'cosh':
-                result = Math.cosh(a)
-                break
-            case 'tanh':
-                result = Math.tanh(a)
-                break
-            case 'p':
-                result = a * 3.14
-                break
-            case 'rand':
-                break
-        }
-        finish = true
-        out.textContent = displayString
+  screen.innerText = expression;
+}
+document.addEventListener("click", onCalcButtonClick);
 
+function calcMore() {
+  const more = document.querySelector(".calc__buttons-grid");
+  const btm_mode = document.querySelector(".calc__button--mode");
+  const disp = document.querySelector(".calc");
+  const btms = document.querySelector(".calc__buttons");
 
+  if (more.style.display === "none") {
+    more.style.display = "grid";
+    btm_mode.innerHTML = "ordinary";
+    disp.style.width = "800px";
+    btms.style.display = "grid";
+  } else {
+    more.style.display = "none";
+    btm_mode.innerHTML = "Engineering";
+    disp.style.width = "400px";
+    btms.style.display = "block";
+  }
+}
+document.querySelector(".calc__button--mode").onclick = calcMore;
