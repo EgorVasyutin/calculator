@@ -10,8 +10,18 @@ const clearButton = document.querySelector('.calc__button--clear')
 const modeButton = document.querySelector('.calc__button--mode')
 const historyButton = document.querySelector('.calc__button--history')
 
+const numberButtons = document.querySelectorAll('.calc__button--number')
+const mainOperationButtons = document.querySelectorAll('.calc__button--main-operation')
+const bracketButtons = document.querySelectorAll('.calc__button--bracket')
+const displayButtons = [...numberButtons, ...mainOperationButtons, ...bracketButtons]
+
 // event listeners
-document.addEventListener('click', onCalcButtonClick)
+displayButtons.forEach((displayButton) => {
+  displayButton.addEventListener('click', onDisplayButtonClick)
+})
+mainOperationButtons.forEach((mainOperationButton) => {
+  mainOperationButton.addEventListener('click', onMainOperationButtonClick)
+})
 
 clearButton.onclick = clearExpression
 modeButton.onclick = calcMore
@@ -20,7 +30,12 @@ historyCloseButton.onclick = closeHistory
 
 // state
 let expression = ''
-const history = ['2+1=3', '2+1=3', '2+1=3']
+const history = []
+
+// HTML
+function getHistoryExpressionHTML(expression) {
+  return `<div class="calc__history-expression">${expression}</div>`
+}
 
 // logic
 function calculateResult(expression, action) {
@@ -69,15 +84,14 @@ function calculateResult(expression, action) {
     case 'rand':
     default:
       try {
-        return eval(expression.slice(0, expression.length - 1))
+        if (expression.includes('=')) {
+          expression = expression.slice(0, expression.length - 1)
+        }
+        return eval(expression)
       } catch {
         return 'Некорректный ввод'
       }
   }
-}
-
-function getHistoryExpressionHTML(expression) {
-  return `<div class="calc__history-expression">${expression}</div>`
 }
 
 function clearExpression() {
@@ -96,31 +110,28 @@ function closeHistory() {
   historyElement.style.display = 'none'
 }
 
-function onCalcButtonClick(event) {
-  if (!event.target.classList.contains('calc__button')) return
-
-  if (expression.includes('=')) {
-    expression = screen.innerText = ''
-
-    if (event.target.innerText === '=') {
-      return
-    }
-  }
-
-  expression += event.target.innerText
-  if (!/^[0-9]$/.test(event.target.innerText)) {
-    const action = event.target.innerText
-
-    if (event.target.innerText === '=') {
-      const result = calculateResult(expression, action)
-      console.log(result)
-      expression += result
-      history.push(expression)
-      console.log(history)
-    }
-  }
-
+function updateExpression(str) {
+  expression += str
   screen.innerText = expression
+}
+
+function onDisplayButtonClick(event) {
+  if (expression.includes('=')) {
+    clearExpression()
+  }
+
+  updateExpression(event.target.innerText)
+}
+
+function onMainOperationButtonClick(event) {
+  const action = event.target.innerText
+
+  if (event.target.innerText === '=') {
+    const result = calculateResult(expression, action)
+    updateExpression(result)
+
+    history.push(expression)
+  }
 }
 
 function calcMore() {
