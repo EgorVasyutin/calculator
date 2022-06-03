@@ -24,7 +24,7 @@ function calculateResult(expression, action) {
     case "3x":
       return Math.sqrt(expression) * 3;
     case "yx":
-      return Math.sqrt(expression) * b;
+      return Math.sqrt(expression);
     case "log":
       return Math.log10(expression);
     case "in":
@@ -49,12 +49,25 @@ function calculateResult(expression, action) {
       return expression * Math.PI;
     case "rand":
     default:
-      return eval(expression.slice(0, expression.length - 1));
+      try {
+        return eval(expression.slice(0, expression.length - 1));
+      } catch {
+        return "Некорректный ввод";
+      }
   }
 }
 
 function onCalcButtonClick(event) {
   if (!event.target.classList.contains("calc__button")) return;
+
+  if (expression.includes("=")) {
+    expression = screen.innerText = "";
+
+    if (event.target.innerText === "=") {
+      return;
+    }
+  }
+
   switch (event.target.innerText) {
     case "AC":
       expression = screen.innerText = "";
@@ -63,6 +76,16 @@ function onCalcButtonClick(event) {
       return;
     case "ordinary":
       return;
+    case "History":
+      const historyDisp = document.querySelector(".calc__history");
+      historyDisp.style.display = "block";
+      const historyCombo = document.querySelector(".history");
+      history.forEach((element) => (historyCombo.innerHTML += element));
+      function closeHistory() {
+        historyDisp.style.display = "none";
+      }
+      document.querySelector(".close").onclick = closeHistory;
+      return;
   }
 
   expression += event.target.innerText;
@@ -70,8 +93,11 @@ function onCalcButtonClick(event) {
     const action = event.target.innerText;
 
     if (event.target.innerText === "=") {
-      expression += calculateResult(expression, action);
+      const result = calculateResult(expression, action);
+      console.log(result);
+      expression += result;
       history.push(expression);
+      console.log(history);
     }
   }
 

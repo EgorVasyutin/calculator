@@ -19,6 +19,7 @@ body {
     font-size: 25px;
     border-radius: 30px;
     overflow: hidden;
+    position: relative;
 }
 
 .calc__screen {
@@ -29,13 +30,41 @@ body {
     font-size: 64px;
     line-height: 64px;
 }
+/*.calc__history-expression {*/
+
+/*}*/
+.close {
+    line-height: 28px;
+    text-align: center;
+    display: block;
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.history {
+    padding: 12px 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 .calc__history {
-    display: none;/*flex*/
-    justify-content: flex-end;
-    padding: 16px;
-    height: 70px;
-    font-size: 64px;
-    line-height: 64px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.7;
+    background-color: #000;
+    display: none;
+    flex-direction: column;
 }
 .calc__buttons {
     display: block;
@@ -50,7 +79,6 @@ body {
 
 .calc__buttons-grid--engineer {
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 1fr);
     display: none;
 }
 
