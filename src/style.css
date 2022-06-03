@@ -33,7 +33,7 @@ body {
 /*.calc__history-expression {*/
 
 /*}*/
-.close {
+.calc-history__close {
     line-height: 28px;
     text-align: center;
     display: block;
@@ -55,17 +55,21 @@ body {
     height: 100vh;
 }
 .calc__history {
+   position: absolute;
+left: 0;
+top: 0;
+right: 0;
+bottom: 0;
+}
+
+.calc-history {
     padding: 20px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
     opacity: 0.7;
     background-color: #000;
     display: none;
     flex-direction: column;
 }
+
 .calc__buttons {
     display: block;
     grid-template-columns: repeat(2, 1fr);

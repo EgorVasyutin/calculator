@@ -1,9 +1,12 @@
-let screen = document.querySelector(".calc__screen");
+// constants
+const screen = document.querySelector(".calc__screen");
+const historyBody = document.querySelector(".calc-history__body");
 
-/*State*/
+/* state */
 let expression = "";
 const history = [];
 
+// logic
 function calculateResult(expression, action) {
   switch (action) {
     case "2nd":
@@ -57,6 +60,10 @@ function calculateResult(expression, action) {
   }
 }
 
+function getHistoryExpressionHTML(expression) {
+  return `<div class="calc__history-expression">${expression}</div>`
+}
+
 function onCalcButtonClick(event) {
   if (!event.target.classList.contains("calc__button")) return;
 
@@ -68,24 +75,25 @@ function onCalcButtonClick(event) {
     }
   }
 
-  switch (event.target.innerText) {
-    case "AC":
-      expression = screen.innerText = "";
-      return;
-    case "Engineering":
-      return;
-    case "ordinary":
-      return;
-    case "History":
-      const historyDisp = document.querySelector(".calc__history");
-      historyDisp.style.display = "block";
-      const historyCombo = document.querySelector(".history");
-      history.forEach((element) => (historyCombo.innerHTML += element));
-      function closeHistory() {
-        historyDisp.style.display = "none";
-      }
-      document.querySelector(".close").onclick = closeHistory;
-      return;
+
+  const buttonClassName = event.target.className
+  if (buttonClassName.includes('--clear')) {
+    expression = screen.innerText = "";
+    return;
+  } else if (buttonClassName.includes('--mode')) {
+    return;
+  } else if (buttonClassName.includes('--history')) {
+
+
+    history.forEach((expression) => getHistoryExpressionHTML(expression));
+    function closeHistory() {
+      historyDisplay.style.display = "none";
+    }
+    document.querySelector(".calc-history__close").onclick = closeHistory;
+
+    historyDisplay.style.display = "block";
+
+    return;
   }
 
   expression += event.target.innerText;
