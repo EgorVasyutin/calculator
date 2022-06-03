@@ -1,136 +1,131 @@
 :root {
-    --color-gray: gray;
-    --color-gray-darken: dimgray;
-    --color-orange: #FF8C00;
-    --color-text: white;
-    --color-border: black;
+  --color-gray: gray;
+  --color-gray-darken: dimgray;
+  --color-orange: #ff8c00;
+  --color-text: white;
+  --color-border: black;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .calc {
-    width: 410px;
-    background-color: #000000;
-    color: white;
-    font-size: 25px;
-    border-radius: 30px;
-    overflow: hidden;
-    position: relative;
+  width: 410px;
+  background-color: #000000;
+  color: white;
+  font-size: 25px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
 }
 
 .calc__screen {
-    display: flex;
-    justify-content: flex-end;
-    padding: 16px;
-    height: 70px;
-    font-size: 64px;
-    line-height: 64px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 70px;
+  font-size: 64px;
+  line-height: 64px;
 }
 /*.calc__history-expression {*/
 
 /*}*/
 .calc-history__close {
-    line-height: 28px;
-    text-align: center;
-    display: block;
-    border: 2px solid white;
-    border-radius: 50%;
-    color: white;
-    font-size: 24px;
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+  line-height: 28px;
+  text-align: center;
+  display: block;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 .history {
-    padding: 12px 16px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  padding: 12px 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 .calc__history {
-   position: absolute;
-left: 0;
-top: 0;
-right: 0;
-bottom: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .calc-history {
-    padding: 20px;
-    opacity: 0.7;
-    background-color: #000;
-    display: none;
-    flex-direction: column;
+  padding: 20px;
+  opacity: 0.7;
+  background-color: #000;
+  display: none;
+  flex-direction: column;
 }
 
 .calc__buttons {
-    display: block;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2px;
+  display: block;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2px;
 }
 
 .calc__buttons-grid {
-    display: grid;
-    grid-gap: 2px;
+  display: grid;
+  grid-gap: 2px;
 }
 
 .calc__buttons-grid--engineer {
-    grid-template-columns: repeat(5, 1fr);
-    display: none;
+  grid-template-columns: repeat(5, 1fr);
+  display: none;
 }
 
 .calc__buttons-grid--ordinary {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
 .calc__button {
-    /* сброс дефолтных стилей */
-    outline: none;
-    border: none;
+  /* сброс дефолтных стилей */
+  outline: none;
+  border: none;
 
-    padding: 20px 24px;
-    background-color: var(--color-gray-darken);
-    color: var(--color-text);
-    text-align: center;
-    font: 16px "Avenir Next";
+  padding: 20px 24px;
+  background-color: var(--color-gray-darken);
+  color: var(--color-text);
+  text-align: center;
+  font: 16px 'Avenir Next';
 }
 
 .calc__button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .calc__buttons-grid--ordinary .calc__button--history {
-    grid-column: 1 / span 2;
+  grid-column: 1 / span 2;
 }
 
 .calc__buttons-grid--ordinary .calc__button--mode {
-    grid-column: 3 / span 2;
+  grid-column: 3 / span 2;
 }
 
 .calc__buttons-grid--ordinary .calc__button--zero {
-    grid-column: 1 / span 2;
+  grid-column: 1 / span 2;
 }
 
-
 .calc__button--main-operation {
-    background-color: var(--color-orange)
+  background-color: var(--color-orange);
 }
 
 .calc__button--number {
-    background-color: var(--color-gray)
+  background-color: var(--color-gray);
 }
-
-
 
 .calc__button--main-operation {
-
 }
-
