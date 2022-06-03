@@ -1,10 +1,26 @@
 // constants
 const screen = document.querySelector('.calc__screen')
+
+const historyElement = document.querySelector('.calc-history')
+const historyCloseButton = document.querySelector('.calc-history__close')
 const historyBody = document.querySelector('.calc-history__body')
 
-/* state */
+// buttons
+const clearButton = document.querySelector('.calc__button--clear')
+const modeButton = document.querySelector('.calc__button--mode')
+const historyButton = document.querySelector('.calc__button--history')
+
+// event listeners
+document.addEventListener('click', onCalcButtonClick)
+
+clearButton.onclick = clearExpression
+modeButton.onclick = calcMore
+historyButton.onclick = openHistory
+historyCloseButton.onclick = closeHistory
+
+// state
 let expression = ''
-const history = []
+const history = ['2+1=3', '2+1=3', '2+1=3']
 
 // logic
 function calculateResult(expression, action) {
@@ -64,6 +80,22 @@ function getHistoryExpressionHTML(expression) {
   return `<div class="calc__history-expression">${expression}</div>`
 }
 
+function clearExpression() {
+  expression = screen.innerText = ''
+}
+
+function openHistory() {
+  history.forEach((expression) => {
+    historyBody.innerHTML += getHistoryExpressionHTML(expression)
+  })
+  historyElement.style.display = 'block'
+}
+
+function closeHistory() {
+  historyBody.innerHTML = ''
+  historyElement.style.display = 'none'
+}
+
 function onCalcButtonClick(event) {
   if (!event.target.classList.contains('calc__button')) return
 
@@ -73,24 +105,6 @@ function onCalcButtonClick(event) {
     if (event.target.innerText === '=') {
       return
     }
-  }
-
-  const buttonClassName = event.target.className
-  if (buttonClassName.includes('--clear')) {
-    expression = screen.innerText = ''
-    return
-  } else if (buttonClassName.includes('--mode')) {
-    return
-  } else if (buttonClassName.includes('--history')) {
-    history.forEach((expression) => getHistoryExpressionHTML(expression))
-    function closeHistory() {
-      historyDisplay.style.display = 'none'
-    }
-    document.querySelector('.calc-history__close').onclick = closeHistory
-
-    historyDisplay.style.display = 'block'
-
-    return
   }
 
   expression += event.target.innerText
@@ -108,7 +122,6 @@ function onCalcButtonClick(event) {
 
   screen.innerText = expression
 }
-document.addEventListener('click', onCalcButtonClick)
 
 function calcMore() {
   const more = document.querySelector('.calc__buttons-grid')
@@ -128,4 +141,3 @@ function calcMore() {
     btms.style.display = 'block'
   }
 }
-document.querySelector('.calc__button--mode').onclick = calcMore
