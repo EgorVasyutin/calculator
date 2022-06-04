@@ -93,15 +93,19 @@ function calculateResult(expression, action) {
       }
   }
 }
-
 function clearExpression() {
   expression = screen.innerText = ''
 }
 
 function openHistory() {
-  history.forEach((expression) => {
-    historyBody.innerHTML += getHistoryExpressionHTML(expression)
-  })
+  if (history.length === 0) {
+    historyBody.innerHTML = 'Нет истории вычислений'
+  } else {
+    history.forEach((expression) => {
+      historyBody.innerHTML += getHistoryExpressionHTML(expression)
+    })
+  }
+
   historyElement.style.display = 'block'
 }
 
@@ -128,6 +132,7 @@ function onMainOperationButtonClick(event) {
 
   if (event.target.innerText === '=') {
     const result = calculateResult(expression, action)
+    console.log(result)
     updateExpression(result)
 
     history.push(expression)
@@ -140,15 +145,15 @@ function calcMore() {
   const disp = document.querySelector('.calc')
   const btms = document.querySelector('.calc__buttons')
 
-  if (more.style.display === 'none') {
-    more.style.display = 'grid'
-    btm_mode.innerHTML = 'ordinary'
-    disp.style.width = '800px'
-    btms.style.display = 'grid'
-  } else {
+  if (disp.style.width === '800px') {
     more.style.display = 'none'
     btm_mode.innerHTML = 'Engineering'
-    disp.style.width = '400px'
+    disp.style.width = '410px'
     btms.style.display = 'block'
+  } else {
+    more.style.display = 'grid'
+    btm_mode.innerHTML = 'Ordinary'
+    disp.style.width = '800px'
+    btms.style.display = 'grid'
   }
 }
